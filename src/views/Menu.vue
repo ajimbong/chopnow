@@ -1,12 +1,13 @@
 <template>
-    <div class="h-screen">
-        The about page
+    <div>
+        This is the menu
     </div>
 </template>
 
 <script>
 
+
 export default {
-  name: 'About'
+  name: 'Menu'
 }
 </script>
