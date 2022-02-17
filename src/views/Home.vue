@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <Homewheader />
     <div>Hello World</div>
   </div>
 </template>
@@ -9,7 +9,10 @@
 // @ is an alias to /src
 //import HelloWorld from '@/components/HelloWorld.vue'
 
+import Homewheader from '@/components/home/Homeheader.vue'
+
 export default {
-  name: 'Home'
+  name: 'Home',
+  components : {Homewheader}
 }
 </script>

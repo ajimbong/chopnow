@@ -4,8 +4,6 @@
       w-screen
       h-auto
       bg-stone
-      absolute
-      bottom-0
       grid grid-cols-2
       p-8
       gap-2 gap-y-7
