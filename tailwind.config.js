@@ -11,8 +11,10 @@ module.exports = {
       'back' : '#FAFAF9',
       //This is the main color
       'main' : '#EF4444',
+       'main-light' : '#FEE2E2',
       //This is for light text
-      'light' : '#78716C'
+      'light' : '#78716C',
+      'white' : '#ffffff',
     }
   },
   variants: {

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Homewheader />
-    <div>Hello World</div>
+    <Popularmeals />
   </div>
 </template>
 
@@ -10,9 +10,10 @@
 //import HelloWorld from '@/components/HelloWorld.vue'
 
 import Homewheader from '@/components/home/Homeheader.vue'
+import Popularmeals from '@/components/home/Popularmeals.vue'
 
 export default {
   name: 'Home',
-  components : {Homewheader}
+  components : {Homewheader, Popularmeals}
 }
 </script>
