@@ -15,6 +15,7 @@ module.exports = {
       //This is for light text
       'light' : '#78716C',
       'white' : '#ffffff',
+      'form' : '#F5F5F4',
     }
   },
   variants: {
