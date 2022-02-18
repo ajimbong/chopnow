@@ -4,8 +4,15 @@ module.exports = {
   theme: {
     extend: {},
     colors : {
+      //this is for the dark background and the text
       'stone' : '#292524',
-      'grey' : '#d6d3d1'
+      'grey' : '#d6d3d1',
+      //This is the backgroun color
+      'back' : '#FAFAF9',
+      //This is the main color
+      'main' : '#EF4444',
+      //This is for light text
+      'light' : '#78716C'
     }
   },
   variants: {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Customheader text="Menu" :img="imgUrl" />
+    <Customheader :text="title" :img="imgUrl" />
   </div>
 </template>
 
