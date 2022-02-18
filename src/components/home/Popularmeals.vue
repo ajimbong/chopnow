@@ -1,7 +1,7 @@
 <template>
-  <section class="bg-back p-16">
-      <h1> Our Popular Meals</h1>
-      <div>
+  <section class="bg-back p-8 w-full flex flex-col items-center">
+      <h1 class="text-main font-bold"> Our Popular Meals</h1>
+      <div class="mt-8">
           <Cart/>
       </div>
   </section>

@@ -2,6 +2,7 @@
   <div class="home">
     <Homewheader />
     <Popularmeals />
+    <Howitworks />
   </div>
 </template>
 
@@ -11,9 +12,10 @@
 
 import Homewheader from '@/components/home/Homeheader.vue'
 import Popularmeals from '@/components/home/Popularmeals.vue'
+import Howitworks from '@/components/home/Howitworks.vue'
 
 export default {
   name: 'Home',
-  components : {Homewheader, Popularmeals}
+  components : {Homewheader, Popularmeals, Howitworks}
 }
 </script>
