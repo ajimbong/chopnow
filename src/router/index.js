@@ -9,28 +9,44 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta : {
+      title : 'Home'
+    }
   },
   {
     path: '/menu',
     name: 'Menu',
-    component: Menu
+    component: Menu,
+    meta : {
+      title : 'Menu'
+    }
   },
   {
     path: '/contact',
     name: 'Contact',
-    component: Contact
+    component: Contact,
+    meta : {
+      title : 'Contact'
+    }
   },
   {
     path: '/about',
     name: 'About',
-    component: About
+    component: About,
+    meta : {
+      title : 'About'
+    }
   }
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+})
+
+router.afterEach((to)=>{
+  document.title = "ChopNow | " + to.meta.title
 })
 
 export default router
