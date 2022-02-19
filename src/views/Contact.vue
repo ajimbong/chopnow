@@ -16,7 +16,7 @@ export default {
   components : {Customheader, Googlemaps, Contactsection},
   data(){
     return{
-      imgUrl : '/pages/contact/contact.jpg',
+      imgUrl : '/pages/contact/contact.webp',
       title : 'Contact'
     }
   },

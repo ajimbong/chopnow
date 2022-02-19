@@ -15,7 +15,7 @@ export default {
   components : {Customheader, Aboutsection},
   data(){
     return{
-      imgUrl : '/pages/about/about.jpg',
+      imgUrl : '/pages/about/about.webp',
       title : 'About'
     }
   },

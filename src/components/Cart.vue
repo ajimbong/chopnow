@@ -1,7 +1,7 @@
 <template>
   <div class="w-72 h-72 rounded-md bg-white shadow-md overflow-hidden">
       <div class="h-2/3 overflow-hidden flex items-center justify-center">
-      <img src="/pages/home/h3.jpg" alt="meal image">
+      <img src="/pages/home/h3.webp" alt="meal image">
       </div>
       <div class="p-4">
           <div class="flex items-start justify-between">

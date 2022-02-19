@@ -2,7 +2,7 @@
   <section class="w-full h-auto px-8 py-16 bg-back ">
       <div class="md:grid md:grid-cols-2 md:gap-4 md:gap-x-16 lg:gap-x-4 md:align-top md:justify-between">
           <div class="hidden md:flex items-start justify-center h-48 w-96 bg-stone overflow-hidden">
-          <img src="/pages/about/a2.jpg" alt="food">
+          <img src="/pages/about/a2.webp" alt="food">
         </div>
         <div>
             <h2 class="text-main font-bold">Who We Are</h2>

@@ -1,10 +1,18 @@
 <template>
-  <header class=" h-h ">
+  <header class=" h-h " id="img">
       <!-- <img src="@/assets/pages/home/homew.jpg" class="" alt=""> -->
-      <div class="flex flex-col w-full h-full items-center  justify-center">
+      <div class="flex flex-col w-full h-full items-center  justify-around">
 <!--  -->
-      <h1 class="text-4xl font-serif lg:text-6xl">Best Quality And Tasty Food</h1>
-      <p class="text-xl md:mt-8 mt-2 opacity-90">Delivery within an hour</p>
+        <div class="flex flex-col items-center p-32">
+            <h1 class="text-4xl font-serif lg:text-6xl">Best Quality And Tasty Food</h1>
+            <p class="text-xl md:mt-8 mt-2 opacity-90" id="text">Delivery within an hour</p>
+        </div>
+
+      <div class="flex justify-between w-16">
+          <div class="dots full" id="dotOne"></div>
+          <div class="dots " id="dotTwo"></div>
+          <div class="dots " id="dotThree"></div>
+      </div>
       </div>
   </header>
 </template>
@@ -17,13 +25,23 @@ export default ({
 </script>
 
 <style scoped>
+.dots{
+    width: .5rem;
+    height: .5rem;
+    border-radius: 100%;
+    background-color: #FEE2E2;
+    opacity: .8;
+}
+.full{
+    background-color: #EF4444;
+}
  .h-h{
      height: 32rem;
     
  }
 
  header{
-     background-image: url('../../assets/pages/home/homew.jpg');
+     background-image: url('/pages/home/homew.webp');
      background-position: center;
      background-repeat: no-repeat;
      background-size: cover;

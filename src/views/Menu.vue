@@ -13,7 +13,7 @@ export default {
   components : {Customheader},
   data(){
     return{
-      imgUrl : '/pages/menu/menu.jpg',
+      imgUrl : '/pages/menu/menu.webp',
       title : 'Menu'
     }
   },
