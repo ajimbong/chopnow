@@ -1,5 +1,5 @@
 <template>
-  <nav class="opacity-100 flex justify-between px-4">
+  <nav class="opacity-100 flex justify-between px-4 ">
     <div class="">
       <!-- the logo goes here  -->
       <svg
