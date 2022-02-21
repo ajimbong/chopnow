@@ -3,9 +3,9 @@
       <!-- <img src="@/assets/pages/home/homew.jpg" class="" alt=""> -->
       <div class="flex flex-col w-full h-full items-center  justify-around">
 <!--  -->
-        <div class="flex flex-col items-center p-32">
-            <h1 class="text-4xl font-serif lg:text-6xl">Best Quality And Tasty Food</h1>
-            <p class="text-xl md:mt-8 mt-2 opacity-90" id="text">Delivery within an hour</p>
+        <div class="flex flex-col items-center md:p-32">
+            <h1 class="text-4xl  mt-12 md:mt-0 text-center font-serif lg:text-6xl">Best Quality And Tasty Food</h1>
+            <p class="text-xl md:mt-8 mt-16 opacity-90" id="text">Delivery within an hour</p>
         </div>
 
       <div class="flex justify-between w-16">
