@@ -50,10 +50,11 @@
     <div class="flex w-2/3 justify-between">
       <!-- links -->
       <ul class="text-white grid grid-cols-4 gap-x-4 items-center">
-        <li>Home</li>
-        <li>Menu</li>
-        <li>Contact</li>
-        <li>About</li>
+        
+        <router-link class="pt-1 hover:underline" to="/">Home</router-link>
+        <router-link class="pt-1 hover:underline" to="/menu">Menu</router-link>
+        <router-link class="pt-1 hover:underline" to="/contact">Contact</router-link>
+        <router-link class="pt-1 hover:underline" to="/about">About</router-link>
       </ul>
 
       <!-- search bar, avatar and cart -->
