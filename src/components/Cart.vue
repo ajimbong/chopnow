@@ -5,14 +5,14 @@
       </div>
       <div class="p-4">
           <div class="flex items-start justify-between">
-              <h3 class="font-semibold">Pepperoni Pizza</h3>
-              <h3 class="font-semibold text-main">FCFA 2,000</h3>
+              <h3 class="font-semibold">{{name}}</h3>
+              <h3 class="font-semibold text-main">FCFA {{price}}</h3>
           </div>
           <div class="flex items-end justify-between pt-2">
-              <p class="text-xs text-light w-1/2">cheese, tomato, curry, powder, stake</p>
+              <p class="text-xs text-light w-1/2">{{details}}</p>
               <button class="bg-main-light rounded-full px-3 py-2 text-main text-xs shadow-sm
               hover:text-white hover:bg-main hover:shadow-md transition-colors duration-300 ease-in 
-               ">Add to cart+</button>
+               " @click="addToCart">Add to cart+</button>
           </div>
       </div>
   </div>
@@ -21,7 +21,28 @@
 
 <script>
 export default {
-    name : 'Cart'
+    name : 'Cart',
+    props : ['name', 'price', 'details', 'id'],
+    methods : {
+        addToCart(){
+            let check = 0
+            let item = {
+                id : this.id,
+                name : this.name,
+                price : this.price
+            }   
+            this.$store.state.cart.forEach(element => {
+                if(element.id == item.id){
+                    check++
+                }
+            });
+            if(!check){
+                this.$store.commit('addToCart', item)
+            }
+
+            window.alert(this.$store.getters.cartLength)
+        }
+    }
 }
 </script>
 

@@ -2,8 +2,6 @@
   <Customnav class="absolute top-0 left-0 w-full"/>
   <router-view/>
   <Customfooter/>
-
-  
   
 </template>
 
@@ -13,7 +11,11 @@ import Customnav from '@/components/Customnav.vue'
 
 
 export default ({
-  components : {Customfooter, Customnav}
+  components : {Customfooter, Customnav},
+  beforeCreate(){
+    this.$store.dispatch('populateMeals')
+    
+  }
 })
 </script>
 

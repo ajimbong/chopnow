@@ -58,7 +58,7 @@
       </ul>
 
       <!-- search bar, avatar and cart -->
-      <div class="flex justify-around items-center w-1/3">
+      <div class="flex justify-around items-center w-1/3 relative">
         <div class="relative flex items-center">
           <svg
             width="20"
@@ -95,6 +95,8 @@
               fill="#FEF2F2"
             />
           </svg>
+           <div v-if="$store.getters.cartLength" class="absolute top-2 right-4 text-white w-4 h-4 bg-main flex items-center justify-center rounded-full">
+              <span class="text-xs"> {{$store.getters.cartLength}}</span> </div>
         </div>
         <div class="w-min">
           <svg
@@ -183,7 +185,7 @@
     </svg>
     </div>
     <!-- the cart icon -->
-    <div>
+    <div class="relative">
 
     <svg
       width="26"
@@ -197,6 +199,9 @@
         fill="#FEF2F2"
       />
     </svg>
+    <div v-if="$store.getters.cartLength" class="absolute -top-0.5 -right-0.5 text-white w-4 h-4 bg-main flex items-center justify-center rounded-full">
+              <span class="text-xs"> {{$store.getters.cartLength}}</span> </div>
+       
     </div>
   </nav>
 
