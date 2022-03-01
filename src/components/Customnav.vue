@@ -1,5 +1,5 @@
 <template>
-  <nav class="opacity-100 hidden md:flex absolute top-0 justify-between px-4 w-screen">
+  <nav class="opacity-100 hidden md:flex absolute top-0 justify-between px-4 w-full">
     <div class="">
       <!-- the logo goes here  -->
       <svg

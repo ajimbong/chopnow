@@ -1,7 +1,7 @@
 <template>
   <footer
     class="
-      w-screen
+      w-full
       h-auto
       bg-stone
       grid grid-cols-2
