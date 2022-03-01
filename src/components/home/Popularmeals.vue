@@ -1,26 +1,32 @@
 <template>
   <section class="bg-back p-8 w-full flex flex-col items-center">
-      <h1 class="text-main font-bold"> Our Popular Meals</h1>
-      <div class="mt-8" v-if="$store.state.meals">
-          <Cart name="Pepperonni"
-           price=".price"
-           details=".details"
-           id = 10
-           />
-          <Cart name="Chacka"
-           price="price"
-           details=".details"
-           id = 93
-           />
-      </div>
+      <h1 class="text-main font-bold "> Our Popular Meals</h1>
+      
+          
+          <Scroller>
+              <Cart v-for="item in $store.getters.recommended" 
+          :key="item.id"
+          :name ="item.name"
+          :price ="item.price"
+          :details ="item.details"
+          :id ="item._id"
+          :image ="item.image"
+          > </Cart>
+          </Scroller>
+    
+      
   </section>
 </template>
 
 <script>
 import Cart from '@/components/Cart.vue'
+import Scroller from '@/components/Horisontalscroll.vue'
 export default {
     name: 'Popularmeals',
-    components : {Cart}
+    components : {Cart, Scroller}
 }
 </script>
 
+<style lang="less" scoped>
+
+</style>
