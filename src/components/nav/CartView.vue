@@ -42,11 +42,15 @@
             </p>
           </div>
           <div>
-            <button class="bg-main text-white rounded-md px-4 py-1 text-sm">
+            <button class="bg-main text-white rounded-md px-4 py-1 text-sm"
+             :disabled="!$store.loggedIn"
+             @click="checkOut"
+             >
               Checkout
             </button>
           </div>
         </div>
+        <p v-if="!$store.loggedIn" class="text-xs mt-4 ">to checkout, you will have to <span @click="toggleLogin" class="text-main underline cursor-pointer">login here</span></p>
       </div>
     </div>
   </div>
@@ -61,6 +65,14 @@ export default {
     closeCart() {
       this.$emit("closeCart");
     },
+    checkOut(){
+      alert("you are logged in")
+    },
+    toggleLogin(){
+      this.$emit('closeCart')
+      this.$store.commit('setLoginMode', true)
+      this.$store.commit('toggleLoginMenu')
+    }
   },
 };
 </script>
