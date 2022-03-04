@@ -88,7 +88,8 @@
             viewBox="0 0 26 28"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            class="w-5"
+            class="w-5 cursor-pointer"
+            @click="openCart"
           >
             <path
               d="M1.80001 0.599998C1.37567 0.599998 0.968699 0.768569 0.668641 1.06863C0.368583 1.36869 0.200012 1.77565 0.200012 2.2C0.200012 2.62434 0.368583 3.03131 0.668641 3.33137C0.968699 3.63143 1.37567 3.8 1.80001 3.8H3.75201L4.24001 5.7552C4.24486 5.77771 4.25019 5.80012 4.25601 5.8224L6.42881 14.5104L5.00001 15.9376C2.98401 17.9536 4.41121 21.4 7.26241 21.4H21C21.4244 21.4 21.8313 21.2314 22.1314 20.9314C22.4314 20.6313 22.6 20.2243 22.6 19.8C22.6 19.3757 22.4314 18.9687 22.1314 18.6686C21.8313 18.3686 21.4244 18.2 21 18.2H7.26241L8.86241 16.6H19.4C19.6971 16.5998 19.9882 16.517 20.2409 16.3607C20.4935 16.2044 20.6976 15.9809 20.8304 15.7152L25.6304 6.1152C25.7523 5.87132 25.8098 5.60036 25.7975 5.32801C25.7853 5.05566 25.7036 4.79096 25.5603 4.55903C25.417 4.3271 25.2168 4.13563 24.9788 4.00279C24.7407 3.86995 24.4726 3.80014 24.2 3.8H7.04801L6.55201 1.8112C6.46534 1.4652 6.26554 1.15809 5.98434 0.938647C5.70315 0.719202 5.3567 0.600008 5.00001 0.599998H1.80001ZM22.6 25.4C22.6 26.0365 22.3472 26.647 21.8971 27.097C21.447 27.5471 20.8365 27.8 20.2 27.8C19.5635 27.8 18.953 27.5471 18.503 27.097C18.0529 26.647 17.8 26.0365 17.8 25.4C17.8 24.7635 18.0529 24.153 18.503 23.7029C18.953 23.2529 19.5635 23 20.2 23C20.8365 23 21.447 23.2529 21.8971 23.7029C22.3472 24.153 22.6 24.7635 22.6 25.4ZM7.40001 27.8C8.03653 27.8 8.64698 27.5471 9.09707 27.097C9.54716 26.647 9.80001 26.0365 9.80001 25.4C9.80001 24.7635 9.54716 24.153 9.09707 23.7029C8.64698 23.2529 8.03653 23 7.40001 23C6.76349 23 6.15304 23.2529 5.70296 23.7029C5.25287 24.153 5.00001 24.7635 5.00001 25.4C5.00001 26.0365 5.25287 26.647 5.70296 27.097C6.15304 27.5471 6.76349 27.8 7.40001 27.8Z"
@@ -98,14 +99,14 @@
            <div v-if="$store.getters.cartLength" class="absolute top-2 right-4 text-white w-4 h-4 bg-main flex items-center justify-center rounded-full">
               <span class="text-xs"> {{$store.getters.cartLength}}</span> </div>
         </div>
-        <div class="w-min">
+        <div class="w-min relative men">
           <svg
             width="26"
             height="26"
             viewBox="0 0 26 26"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            class="w-5"
+            class="w-5 "
           >
             <path
               fill-rule="evenodd"
@@ -114,6 +115,21 @@
               fill="#FEF2F2"
             />
           </svg>
+             <div class=" bg-back absolute right-0 w-20 rounded-lg overflow-hidden px-4 py-1 hidden">
+              <ul class="">
+                <li  
+                v-if="$store.state.loggedIn" class="text-light text-center hover:bg-white hover:text-main cursor-pointer">Profile</li>
+                <li 
+                v-if="$store.state.loggedIn"
+                 class="text-light text-center hover:bg-white hover:text-main cursor-pointer">Logout</li>
+                <li
+                v-if="!$store.state.loggedIn"
+                 @click="toggleLogin" class="text-light text-center hover:bg-white hover:text-main cursor-pointer">Login</li>
+                <li  
+                v-if="!$store.state.loggedIn"
+                @click="toggleSignup" class="text-light text-center hover:bg-white hover:text-main cursor-pointer">Signup</li>
+              </ul>
+            </div> 
         </div>
       </div>
     </div>
@@ -193,6 +209,7 @@
       viewBox="0 0 26 28"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      @click="openCart"
     >
       <path
         d="M1.80001 0.599998C1.37567 0.599998 0.968699 0.768569 0.668641 1.06863C0.368583 1.36869 0.200012 1.77565 0.200012 2.2C0.200012 2.62434 0.368583 3.03131 0.668641 3.33137C0.968699 3.63143 1.37567 3.8 1.80001 3.8H3.75201L4.24001 5.7552C4.24486 5.77771 4.25019 5.80012 4.25601 5.8224L6.42881 14.5104L5.00001 15.9376C2.98401 17.9536 4.41121 21.4 7.26241 21.4H21C21.4244 21.4 21.8313 21.2314 22.1314 20.9314C22.4314 20.6313 22.6 20.2243 22.6 19.8C22.6 19.3757 22.4314 18.9687 22.1314 18.6686C21.8313 18.3686 21.4244 18.2 21 18.2H7.26241L8.86241 16.6H19.4C19.6971 16.5998 19.9882 16.517 20.2409 16.3607C20.4935 16.2044 20.6976 15.9809 20.8304 15.7152L25.6304 6.1152C25.7523 5.87132 25.8098 5.60036 25.7975 5.32801C25.7853 5.05566 25.7036 4.79096 25.5603 4.55903C25.417 4.3271 25.2168 4.13563 24.9788 4.00279C24.7407 3.86995 24.4726 3.80014 24.2 3.8H7.04801L6.55201 1.8112C6.46534 1.4652 6.26554 1.15809 5.98434 0.938647C5.70315 0.719202 5.3567 0.600008 5.00001 0.599998H1.80001ZM22.6 25.4C22.6 26.0365 22.3472 26.647 21.8971 27.097C21.447 27.5471 20.8365 27.8 20.2 27.8C19.5635 27.8 18.953 27.5471 18.503 27.097C18.0529 26.647 17.8 26.0365 17.8 25.4C17.8 24.7635 18.0529 24.153 18.503 23.7029C18.953 23.2529 19.5635 23 20.2 23C20.8365 23 21.447 23.2529 21.8971 23.7029C22.3472 24.153 22.6 24.7635 22.6 25.4ZM7.40001 27.8C8.03653 27.8 8.64698 27.5471 9.09707 27.097C9.54716 26.647 9.80001 26.0365 9.80001 25.4C9.80001 24.7635 9.54716 24.153 9.09707 23.7029C8.64698 23.2529 8.03653 23 7.40001 23C6.76349 23 6.15304 23.2529 5.70296 23.7029C5.25287 24.153 5.00001 24.7635 5.00001 25.4C5.00001 26.0365 5.25287 26.647 5.70296 27.097C6.15304 27.5471 6.76349 27.8 7.40001 27.8Z"
@@ -222,20 +239,38 @@
       </div>
     </div>
   </div>
+
+<cart-view @close-cart="openCart" v-if="cartOpen"></cart-view>
+<login v-if="$store.state.loginMenu"></login>
 </template>
 
 <script>
+  import CartView from '@/components/nav/CartView.vue'
+  import Login from '@/components/Login.vue'
 export default {
   name: "customnav",
-  components: {},
+  components: {CartView, Login},
   data(){
     return{
-      navOpen: false
+      navOpen: false,
+      cartOpen: false
     }
   },
   methods : {
     openNav(){
       this.navOpen = !this.navOpen
+    },
+    openCart(){
+      this.cartOpen = !this.cartOpen
+      
+    },
+    toggleSignup(){
+      this.$store.commit('setLoginMode', false)
+      this.$store.commit('toggleLoginMenu')
+    },
+    toggleLogin(){
+      this.$store.commit('setLoginMode', true)
+      this.$store.commit('toggleLoginMenu')
     }
   }
 };
@@ -259,5 +294,8 @@ export default {
 }
 .bg-stone-80{
   background-color: rgba(41, 37, 36, 0.8);
+}
+.men:hover > div{
+  display: block;
 }
 </style>

@@ -29,7 +29,8 @@ export default {
             let item = {
                 id : this.id,
                 name : this.name,
-                price : this.price
+                price : this.price,
+                image : this.image
             }   
             this.$store.state.cart.forEach(element => {
                 if(element.id == item.id){

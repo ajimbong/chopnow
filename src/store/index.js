@@ -5,7 +5,9 @@ export default createStore({
     uid: '',
     loggedIn : false,
     meals : [],
-    cart : []
+    cart : [],
+    loginMenu : false,
+    loginMode : true
   },
   mutations: {
     setMeals(store, data){
@@ -13,6 +15,20 @@ export default createStore({
     },
     addToCart(state, data){
       state.cart.push(data)
+    },
+    setCartItems(state, payload){
+      state.cart = payload
+    },
+
+    toggleLoginMenu(state){
+      state.loginMenu = !state.loginMenu
+    },
+    
+    toggleLoginMode(state){
+      state.loginMode = !state.loginMode
+    },
+    setLoginMode(state, data){
+      state.loginMode = data
     }
   },
   actions: {
@@ -24,7 +40,11 @@ export default createStore({
 
       console.log(store.state.meals)
       
-    }
+    },
+    deleteCartItem(store, payload){
+      const newItem = store.state.cart.filter(item => item.id !== payload)
+      store.commit('setCartItems',newItem) 
+    },
   },
   getters : {
     pizzas(state){
@@ -50,7 +70,14 @@ export default createStore({
     },
     cartLength(state){
       return state.cart.length
-    }
+    },
+    totalPrice(state){
+      if(state.cart.length <= 0)
+      return 0
+      let prices = state.cart.map(item => item.price)
+      const total = prices.reduce((tot, cur) => tot + cur)
+      return total
+    },
   },
   modules: {
   }
