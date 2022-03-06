@@ -176,6 +176,7 @@
                   hover:bg-white hover:text-main
                   cursor-pointer
                 "
+                @click="logout"
               >
                 Logout
               </li>
@@ -375,6 +376,7 @@
                   hover:bg-white hover:text-main
                   cursor-pointer
                 "
+                @click="logout"
               >
                 Logout
               </li>
@@ -438,6 +440,10 @@ export default {
       this.navOpen = false
       this.$store.commit("setLoginMode", true);
       this.$store.commit("toggleLoginMenu");
+    },
+    logout(){
+      this.$store.commit('logout')
+      alert('Successfully logged out')
     },
   },
 };

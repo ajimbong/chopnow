@@ -1,15 +1,45 @@
 import { createStore } from 'vuex'
 
+const data = JSON.parse(localStorage.getItem('cauth')) || {}
+const user = {
+  id : '',
+  token : '',
+  loggedIn : false
+}
+
+if(data.id && data.token){
+  user.id = data.id,
+  user.token = data.token,
+  user.loggedIn = true
+  console.log(data)
+}
+
 export default createStore({
   state: {
-    uid: '',
-    loggedIn : false,
+    id: user.id,
+    token: user.token,
+    loggedIn : user.loggedIn,
     meals : [],
     cart : [],
     loginMenu : false,
     loginMode : true
   },
   mutations: {
+    login(state, data){
+      if(data.id && data.token){
+        state.id = data.id;
+        state.token = data.token
+        state.loggedIn = true;
+      } else {
+        alert('There was a login error')
+      }
+    },
+    logout(state){
+      state.id = '';
+      state.token = '';
+      state.loggedIn = false;
+      window.localStorage.removeItem('cauth')
+    },
     setMeals(store, data){
       store.meals = data
     },

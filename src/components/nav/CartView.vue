@@ -42,15 +42,15 @@
             </p>
           </div>
           <div>
-            <button class="bg-main text-white rounded-md px-4 py-1 text-sm"
-             :disabled="!$store.loggedIn"
+            <button :class="{'bg-light opacity-75 cursor-not-allowed' : !$store.state.loggedIn}" class="bg-main text-white rounded-md px-4 py-1 text-sm"
+             :disabled="!$store.state.loggedIn"
              @click="checkOut"
              >
               Checkout
             </button>
           </div>
         </div>
-        <p v-if="!$store.loggedIn" class="text-xs mt-4 ">to checkout, you will have to <span @click="toggleLogin" class="text-main underline cursor-pointer">login here</span></p>
+        <p v-if="!$store.state.loggedIn" class="text-xs mt-4 ">to checkout, you will have to <span @click="toggleLogin" class="text-main underline cursor-pointer">login here</span></p>
       </div>
     </div>
   </div>
