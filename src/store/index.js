@@ -11,7 +11,6 @@ if(data.id && data.token){
   user.id = data.id,
   user.token = data.token,
   user.loggedIn = true
-  console.log(data)
 }
 
 export default createStore({
@@ -22,7 +21,8 @@ export default createStore({
     meals : [],
     cart : [],
     loginMenu : false,
-    loginMode : true
+    loginMode : true,
+    orderView : false,
   },
   mutations: {
     login(state, data){
@@ -33,6 +33,9 @@ export default createStore({
       } else {
         alert('There was a login error')
       }
+    },
+    clearCart(state){
+      state.cart = []
     },
     logout(state){
       state.id = '';
@@ -53,6 +56,10 @@ export default createStore({
     toggleLoginMenu(state){
       state.loginMenu = !state.loginMenu
     },
+
+    toggleOrderView(state){
+      state.orderView = !state.orderView
+    },
     
     toggleLoginMode(state){
       state.loginMode = !state.loginMode
@@ -67,8 +74,6 @@ export default createStore({
       .then(res => res.json())
       .then(data => store.commit('setMeals', data))
       .catch( err => console.error(err))
-
-      console.log(store.state.meals)
       
     },
     deleteCartItem(store, payload){

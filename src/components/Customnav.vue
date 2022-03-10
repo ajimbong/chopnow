@@ -409,15 +409,17 @@
   </div>
 
   <cart-view @close-cart="openCart" v-if="cartOpen"></cart-view>
+  <check-out> </check-out>
   <login v-if="$store.state.loginMenu"></login>
 </template>
 
 <script>
 import CartView from "@/components/nav/CartView.vue";
+import CheckOut from "@/components/nav/Checkout.vue";
 import Login from "@/components/Login.vue";
 export default {
   name: "customnav",
-  components: { CartView, Login },
+  components: { CartView, Login, CheckOut},
   data() {
     return {
       navOpen: false,

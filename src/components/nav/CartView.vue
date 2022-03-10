@@ -1,6 +1,18 @@
 <template>
   <div class="w-full h-full bg-stone-80 absolute" @click.self="closeCart">
-    <div class="bg-back white w-80 h-full opacity-100 p-4 fixed overflow-auto right-0">
+    <div
+      class="
+        bg-back
+        white
+        w-80
+        h-full
+        opacity-100
+        p-4
+        fixed
+        overflow-auto
+        right-0
+      "
+    >
       <button @click="closeCart">
         <svg
           width="24"
@@ -23,56 +35,97 @@
 
       <div class="mt-8 flex flex-col items-center">
         <div class="w-full px-4">
-           <p v-if="$store.getters.cartLength <= 0">Oops, nothing in the cart</p> 
-            <cart-item v-else v-for="item in $store.state.cart" 
+          <p v-if="$store.getters.cartLength <= 0">Oops, nothing in the cart</p>
+          <cart-item
+            v-else
+            v-for="item in $store.state.cart"
             :key="item._id"
             :name="item.name"
             :price="item.price"
             :image="item.image"
             :id="item.id"
-            > </cart-item>
+          >
+          </cart-item>
 
           <!-- ////////////////////////////////////////// -->
         </div>
 
-        <div class="mt-8 w-full px-4 flex justify-between items-center border-t border-grey pt-4">
+        <div
+          class="
+            mt-8
+            w-full
+            px-4
+            flex
+            justify-between
+            items-center
+            border-t border-grey
+            pt-4
+          "
+        >
           <div>
             <p class="text-light">
-              Total: <span class="text-main font-semibold">FCFA {{$store.getters.totalPrice}}</span>
+              Total:
+              <span class="text-main font-semibold"
+                >FCFA {{ $store.getters.totalPrice }}</span
+              >
             </p>
           </div>
           <div>
-            <button :class="{'bg-light opacity-75 cursor-not-allowed' : !$store.state.loggedIn}" class="bg-main text-white rounded-md px-4 py-1 text-sm"
-             :disabled="!$store.state.loggedIn"
-             @click="checkOut"
-             >
+            <button
+              :class="{
+                'bg-light opacity-75 cursor-not-allowed':
+                  !$store.state.loggedIn,
+              }"
+              class="bg-main text-white rounded-md px-4 py-1 text-sm"
+              :disabled="!$store.state.loggedIn"
+              @click="checkOut"
+            >
               Checkout
             </button>
           </div>
         </div>
-        <p v-if="!$store.state.loggedIn" class="text-xs mt-4 ">to checkout, you will have to <span @click="toggleLogin" class="text-main underline cursor-pointer">login here</span></p>
+        <p v-if="!$store.state.loggedIn" class="text-xs mt-4">
+          to checkout, you will have to
+          <span @click="toggleLogin" class="text-main underline cursor-pointer"
+            >login here</span
+          >
+        </p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import CartItem from '@/components/nav/CartItem.vue';
+import CartItem from "@/components/nav/CartItem.vue";
 export default {
   name: "CartView",
-  components: {CartItem},
+  components: { CartItem },
   methods: {
     closeCart() {
       this.$emit("closeCart");
     },
-    checkOut(){
-      alert("you are logged in")
+    checkOut() {
+      // try{
+        
+      //   const res = await axios.get("http://localhost:3000/user/test", {
+      //       headers: {
+      //         'auth-token' : this.$store.state.token,
+      //       },
+      //     })
+
+      //     console.log('data-jim: ', res)
+      // } catch (error) {
+      //     console.error(error);
+      //   }
+      this.$emit("closeCart");
+      this.$store.commit("toggleOrderView");
+
     },
-    toggleLogin(){
-      this.$emit('closeCart')
-      this.$store.commit('setLoginMode', true)
-      this.$store.commit('toggleLoginMenu')
-    }
+    toggleLogin() {
+      this.$emit("closeCart");
+      this.$store.commit("setLoginMode", true);
+      this.$store.commit("toggleLoginMenu");
+    },
   },
 };
 </script>
