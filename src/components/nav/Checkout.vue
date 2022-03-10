@@ -91,8 +91,8 @@ export default {
       this.$store.commit("toggleOrderView");
     },
     order() {
-      const testUrl = 'http://localhost:3000/order';
-      //const url = "https://chopnowapi.herokuapp.com/user/signup"
+      // const testUrl = 'http://localhost:3000/order';
+      const url = "https://chopnowapi.herokuapp.com/order"
 
       const data = {
           user_id : this.$store.state.id,
@@ -105,7 +105,7 @@ export default {
       console.dir(data)
       console.log(this.$store.state.token)
 
-      axios.post(testUrl, data, {
+      axios.post(url, data, {
         headers : {
           'auth-token': this.$store.state.token
         }
