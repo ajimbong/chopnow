@@ -137,7 +137,8 @@ export default {
     },
     signup() {
       //const testUrl = 'http://localhost:3000/user/signup';
-      const url = "https://chopnowapi.herokuapp.com/user/signup"
+      const baseUrl = process.env.VUE_APP_BACKEND_URL
+      const url = `${baseUrl}/user/signup`
       axios.post(url, {
         email : this.email,
         password : this.password,
@@ -165,7 +166,8 @@ export default {
       })
     },
     login() {
-      const url = "https://chopnowapi.herokuapp.com/user/login";
+      const baseUrl = process.env.VUE_APP_BACKEND_URL
+      const url = `${baseUrl}/user/login`
       //const testUrl = 'http://localhost:3000/user/login';
       
       axios.post(url, {

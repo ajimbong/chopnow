@@ -1,5 +1,8 @@
 import { createStore } from 'vuex'
 
+const url = process.env.VUE_APP_BACKEND_URL
+console.log(url)
+
 const data = JSON.parse(localStorage.getItem('cauth')) || {}
 const user = {
   id : '',
@@ -70,7 +73,7 @@ export default createStore({
   },
   actions: {
     populateMeals(store){
-      fetch('https://chopnowapi.herokuapp.com/meals')
+      fetch(`${url}/meals`)
       .then(res => res.json())
       .then(data => store.commit('setMeals', data))
       .catch( err => console.error(err))

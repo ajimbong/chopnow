@@ -92,7 +92,9 @@ export default {
     },
     order() {
       // const testUrl = 'http://localhost:3000/order';
-      const url = "https://chopnowapi.herokuapp.com/order"
+      const baseUrl = process.env.VUE_APP_BACKEND_URL
+      const url = `${baseUrl}/order`
+      // const url = "https://chopnowapi.herokuapp.com/order"
 
       const data = {
           user_id : this.$store.state.id,
